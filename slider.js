@@ -35,4 +35,4 @@ setInterval(() => {
     }
 
     showSlide(next);
-}, 8000);
+}, 9500);
