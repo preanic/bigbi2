@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Berlin Type', sans-serif;
+  font-weight: bold;
+  background-image: url("screens/bg.png");
+}
+
+.main-container {
+  width: 70vw;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 14rem;
+}
+
+.title {
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+
+
+.screens {
+  width: 100%;
+  height: 70%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.screen_link {
+  width: 48%;
+  height: 100%;
+  display: block; /* Делает <a> блочным элементом */
+  text-decoration: none; /* Убирает подчёркивание */
+  color: inherit;
+
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13rem;
+  font-variation-settings: "wght" 1000, "wdth" 100;
+  border: 2px solid #fff;
+  border-radius: 1rem;
+}
+
+.screen_link:hover {
+  color: #83CD00;
+}
+
+
+
+/* FONTS */
+@font-face{
+  font-family: 'Berlin Type';
+  src: url('fonts/BerlinType-Regular.otf') format('otf');
+}
