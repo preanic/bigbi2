@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #101010;
+  font-family: 'Berlin Type', sans-serif;
+  font-weight: bold;
+  overflow: hidden;
+  color: #FFFEDA;
+}
+
+.admin {
+  padding: 50px 150px;
+}
+
+h1 {
+  margin-bottom: 38px;
+  font-size: 4rem;
+}
+
+.sandwich-grid {
+  display: flex;
+  gap: 30px;
+}
+
+.sandwich-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
+}
+
+.sandwich-btn {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  border: 0;
+  border-radius: 7px;
+  background: #383838;
+  color: #FFFEDA;
+  font-family: 'Berlin Type', sans-serif;
+  font-weight: bold;
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.sandwich-btn.active {
+  background: rgba(127, 196, 76, 0.7);
+  border: 3px solid #C1FC94;
+  box-shadow: 0 0 10px rgba(127, 196, 76, 0.7);
+}
+
+.save-btn {
+  display: block;
+  padding: 15px 70px;
+  margin: 50px auto 0;
+  border: 3px solid #FFFEDA;
+  border-radius: 100px;
+  background: #1d1d1d;
+  color: #FFFEDA;
+  font-family: 'Berlin Type', sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: rgba(127, 196, 76, 0.3);
+  border: 3px solid #C1FC94;
+  box-shadow: 0 0 10px rgba(127, 196, 76, 0.4);
+}
+
+.save-btn:active {
+  background: rgba(127, 196, 76, 0.7);
+  border: 3px solid #C1FC94;
+  box-shadow: 0 0 10px rgba(127, 196, 76, 0.4);
+}
+
+
+/* FONTS */
+@font-face{
+  font-family: 'Berlin Type';
+  src: url('fonts/BerlinType-Regular.otf') format('otf');
+}

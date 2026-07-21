@@ -7,7 +7,7 @@
 body {
   font-family: 'Berlin Type', sans-serif;
   font-weight: bold;
-  background-image: url("screens/bg.png");
+  background: #101010;
 }
 
 .main-container {
