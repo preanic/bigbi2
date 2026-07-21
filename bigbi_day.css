@@ -8,10 +8,9 @@ body {
   width: 100vw;
   height: 100vh;
   background: #101010;
-  font-family: 'Berlin Type', sans-serif;
-  font-weight: bold;
+  font-family: 'Martian Grotesk', sans-serif;
   overflow: hidden;
-  color: #FFFEDA;
+  color: #fff;
 }
 
 .admin {
@@ -20,7 +19,9 @@ body {
 
 h1 {
   margin-bottom: 38px;
-  font-size: 4rem;
+  font-size: 5rem;
+  font-weight: 900;
+  font-stretch: 80%;
 }
 
 .sandwich-grid {
@@ -43,9 +44,9 @@ h1 {
   border: 0;
   border-radius: 7px;
   background: #383838;
-  color: #FFFEDA;
-  font-family: 'Berlin Type', sans-serif;
-  font-weight: bold;
+  color: #fff;
+  font-family: 'Martian Grotesk', sans-serif;
+  font-variation-settings: "wght" 500, "wdth" 80;
   font-size: 1.7rem;
   cursor: pointer;
 }
@@ -63,9 +64,9 @@ h1 {
   border: 3px solid #FFFEDA;
   border-radius: 100px;
   background: #1d1d1d;
-  color: #FFFEDA;
-  font-family: 'Berlin Type', sans-serif;
-  font-weight: bold;
+  color: #fff;
+  font-family: 'Martian Grotesk', sans-serif;
+  font-variation-settings: "wght" 500, "wdth" 80;
   font-size: 2rem;
   cursor: pointer;
 }
@@ -85,6 +86,6 @@ h1 {
 
 /* FONTS */
 @font-face{
-  font-family: 'Berlin Type';
-  src: url('fonts/BerlinType-Regular.otf') format('otf');
+  font-family: 'Martian Grotesk';
+  src: url('fonts/MartianGrotesk-VFVF.woff2') format('woff2');
 }
