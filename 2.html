@@ -1,64 +1,44 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>BIGBI дня</title>
-  <link rel="stylesheet" href="bigbi_day.css">
+<meta charset="UTF-8">
+<title>Restaurant Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="bigbi_day_hidden_btn" href="bigbi_day.html">BIGBI дня</a>
 
-<main class="admin">
-  <h1>BIGBI ДНЯ</h1>
-
-  <div class="sandwich-grid">
-    <div class="sandwich-column">
-      <button class="sandwich-btn" data-id="1">ТАЛЬЯТА</button>
-      <button class="sandwich-btn" data-id="2">БУЖЕНИНА</button>
-      <button class="sandwich-btn" data-id="3">ИТАЛЬЯНО</button>
-      <button class="sandwich-btn" data-id="4">ЦЕЗАРЬ</button>
-    </div>
-
-    <div class="sandwich-column">
-      <button class="sandwich-btn" data-id="5">ЛУИЗИАНА</button>
-      <button class="sandwich-btn" data-id="6">ФИЛАДЕЛЬФИЯ</button>
-      <button class="sandwich-btn" data-id="7">ЦЕЗАРЬ С КРЕВ.</button>
-    </div>
-
-    <div class="sandwich-column">
-      <button class="sandwich-btn" data-id="8">СЫР. ДЖЕМ</button>
-      <button class="sandwich-btn" data-id="9">RED</button>
-      <button class="sandwich-btn" data-id="10">GREEN</button>
-    </div>
+  <div class="slider">
+    <img src="screens/2/big_combo/1.png" id="bigComboImage" class="slide active">
+    <img src="screens/2/bigbi_day/1.png" id="sandwichDayImage" class="slide">
+    <img src="screens/2/meat_combo/1.png" id="meatComboImage" class="slide">
+    <img src="screens/2/seafood_combo/1.png" id="seafoodComboImage" class="slide">
+    <img src="screens/2/vc_combo/1.png" id="vcComboImage" class="slide">
   </div>
 
-  <button class="save-btn" id="saveBtn">СОХРАНИТЬ</button>
-</main>
+  <div class="dots"></div>
 
-<script type="text/javascript">
-  const buttons = document.querySelectorAll('.sandwich-btn');
-  const saveBtn = document.querySelector('#saveBtn');
-
-  let selectedId = localStorage.getItem('sandwichOfTheDay') || '1';
-
-  buttons.forEach((button) => {
-    if (button.dataset.id === selectedId) {
-      button.classList.add('active');
+  <script type="text/javascript">
+    const sandwichOfTheDay = localStorage.getItem('sandwichOfTheDay') || '1';
+    document.querySelector('#sandwichDayImage').src = `screens/2/bigbi_day/${sandwichOfTheDay}.png`;
+    // Ставим в комбо альтернативные сэндвичи, не совпадающие с BIGBI дня:
+    switch (sandwichOfTheDay) {
+      case '2':
+        document.querySelector('#meatComboImage').src = `screens/2/meat_combo/2.png`;
+        break;
+      case '5':
+        document.querySelector('#seafoodComboImage').src = `screens/2/seafood_combo/2.png`;
+        break;
+      case '10':
+        document.querySelector('#vcComboImage').src = `screens/2/vc_combo/2.png`;
+        break;
+      case '3':
+        document.querySelector('#bigComboImage').src = `screens/2/big_combo/2.png`;
+        break;
     }
+  </script>
 
-    button.addEventListener('click', () => {
-      buttons.forEach((btn) => btn.classList.remove('active'));
-
-      button.classList.add('active');
-      selectedId = button.dataset.id;
-    });
-  });
-
-  saveBtn.addEventListener('click', () => {
-    localStorage.setItem('sandwichOfTheDay', selectedId);
-    window.location.href = '2_content.html';
-  });
-</script>
-
-<script src="admin.js"></script>
+  <script src="slider.js"></script>
 </body>
 </html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>BIGBI дня</title>
+  <link rel="stylesheet" href="bigbi_day.css">
+</head>
+<body>
+
+<main class="admin">
+  <h1>BIGBI ДНЯ</h1>
+
+  <div class="sandwich-grid">
+    <div class="sandwich-column">
+      <button class="sandwich-btn" data-id="1">ТАЛЬЯТА</button>
+      <button class="sandwich-btn" data-id="2">БУЖЕНИНА</button>
+      <button class="sandwich-btn" data-id="3">ИТАЛЬЯНО</button>
+      <button class="sandwich-btn" data-id="4">ЦЕЗАРЬ</button>
+    </div>
+
+    <div class="sandwich-column">
+      <button class="sandwich-btn" data-id="5">ЛУИЗИАНА</button>
+      <button class="sandwich-btn" data-id="6">ФИЛАДЕЛЬФИЯ</button>
+      <button class="sandwich-btn" data-id="7">ЦЕЗАРЬ С КРЕВ.</button>
+    </div>
+
+    <div class="sandwich-column">
+      <button class="sandwich-btn" data-id="8">СЫР. ДЖЕМ</button>
+      <button class="sandwich-btn" data-id="9">RED</button>
+      <button class="sandwich-btn" data-id="10">GREEN</button>
+    </div>
+  </div>
+
+  <button class="save-btn" id="saveBtn">СОХРАНИТЬ</button>
+</main>
+
+<script type="text/javascript">
+  const buttons = document.querySelectorAll('.sandwich-btn');
+  const saveBtn = document.querySelector('#saveBtn');
+
+  let selectedId = localStorage.getItem('sandwichOfTheDay') || '1';
+
+  buttons.forEach((button) => {
+    if (button.dataset.id === selectedId) {
+      button.classList.add('active');
+    }
+
+    button.addEventListener('click', () => {
+      buttons.forEach((btn) => btn.classList.remove('active'));
+
+      button.classList.add('active');
+      selectedId = button.dataset.id;
+    });
+  });
+
+  saveBtn.addEventListener('click', () => {
+    localStorage.setItem('sandwichOfTheDay', selectedId);
+    window.location.href = '2.html';
+  });
+</script>
+
+<script src="admin.js"></script>
+</body>
+</html>
