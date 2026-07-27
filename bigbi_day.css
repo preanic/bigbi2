@@ -14,7 +14,7 @@ body {
 }
 
 .admin {
-  padding: 50px 150px;
+  padding: 1rem 150px;
 }
 
 h1 {
@@ -37,7 +37,7 @@ h1 {
 }
 
 .sandwich-btn {
-  height: 3.5rem;
+  height: 3.6rem;
   display: flex;
   align-items: center;
   padding: 0 2rem;
@@ -60,7 +60,7 @@ h1 {
 .save-btn {
   display: block;
   padding: 15px 70px;
-  margin: 50px auto 0;
+  margin: 1.5rem auto 0;
   border: 3px solid #FFFEDA;
   border-radius: 100px;
   background: #1d1d1d;
