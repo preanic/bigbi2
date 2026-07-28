@@ -5,9 +5,38 @@
 <title>Restaurant Menu</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="bigbi_day.css">
 </head>
 <body>
-  <a class="bigbi_day_hidden_btn" href="bigbi_day.html">BIGBI дня</a>
+  <button class="bigbi_day_hidden_btn" onclick="showBigbiDayMenu()">BIGBI дня</button>
+
+  <div id="bigbi_day_menu">
+    <h1>BIGBI ДНЯ</h1>
+
+    <div class="sandwich-grid">
+      <div class="sandwich-column">
+        <button class="sandwich-btn" data-id="1">ТАЛЬЯТА</button>
+        <button class="sandwich-btn" data-id="2">БУЖЕНИНА</button>
+        <button class="sandwich-btn" data-id="3">ИТАЛЬЯНО</button>
+        <button class="sandwich-btn" data-id="4">ЦЕЗАРЬ</button>
+      </div>
+
+      <div class="sandwich-column">
+        <button class="sandwich-btn" data-id="5">ЛУИЗИАНА</button>
+        <button class="sandwich-btn" data-id="6">ФИЛАДЕЛЬФИЯ</button>
+        <button class="sandwich-btn" data-id="7">ЦЕЗАРЬ С КРЕВ.</button>
+      </div>
+
+      <div class="sandwich-column">
+        <button class="sandwich-btn" data-id="8">СЫР. ДЖЕМ</button>
+        <button class="sandwich-btn" data-id="9">RED</button>
+        <button class="sandwich-btn" data-id="10">GREEN</button>
+      </div>
+    </div>
+
+    <button class="save-btn" id="saveBtn">СОХРАНИТЬ</button>
+  </div>
+
 
   <div class="slider">
     <img src="screens/2/big_combo/1.png" id="bigComboImage" class="slide active">
@@ -19,24 +48,72 @@
 
   <div class="dots"></div>
 
-  <script type="text/javascript">
-    const sandwichOfTheDay = localStorage.getItem('sandwichOfTheDay') || '1';
-    document.querySelector('#sandwichDayImage').src = `screens/2/bigbi_day/${sandwichOfTheDay}.png`;
-    // Ставим в комбо альтернативные сэндвичи, не совпадающие с BIGBI дня:
-    switch (sandwichOfTheDay) {
-      case '2':
-        document.querySelector('#meatComboImage').src = `screens/2/meat_combo/2.png`;
-        break;
-      case '5':
-        document.querySelector('#seafoodComboImage').src = `screens/2/seafood_combo/2.png`;
-        break;
-      case '10':
-        document.querySelector('#vcComboImage').src = `screens/2/vc_combo/2.png`;
-        break;
-      case '3':
-        document.querySelector('#bigComboImage').src = `screens/2/big_combo/2.png`;
-        break;
+<script>
+    const buttons = document.querySelectorAll('.sandwich-btn');
+    const saveBtn = document.getElementById('saveBtn');
+    const menu = document.getElementById('bigbi_day_menu');
+
+    const sandwichDayImage = document.getElementById('sandwichDayImage');
+    const bigComboImage = document.getElementById('bigComboImage');
+    const meatComboImage = document.getElementById('meatComboImage');
+    const seafoodComboImage = document.getElementById('seafoodComboImage');
+    const vcComboImage = document.getElementById('vcComboImage');
+
+    // По умолчанию выбран первый BIGBI
+    let selectedId = buttons[0].dataset.id;
+
+    function showBigbiDayMenu() {
+      menu.style.display = 'block';
     }
+
+    function selectButton(id) {
+      selectedId = id;
+
+      buttons.forEach(button => {
+        button.classList.toggle('active', button.dataset.id === id);
+      });
+    }
+
+    function updateMenuImages(id) {
+      // BIGBI дня
+      sandwichDayImage.src = `screens/2/bigbi_day/${id}.png`;
+
+      // Возвращаем все комбо к изображениям по умолчанию
+      bigComboImage.src = 'screens/2/big_combo/1.png';
+      meatComboImage.src = 'screens/2/meat_combo/1.png';
+      seafoodComboImage.src = 'screens/2/seafood_combo/1.png';
+      vcComboImage.src = 'screens/2/vc_combo/1.png';
+
+      // Подменяем нужное комбо
+      switch (id) {
+        case '2':
+          meatComboImage.src = 'screens/2/meat_combo/2.png';
+          break;
+        case '3':
+          bigComboImage.src = 'screens/2/big_combo/2.png';
+          break;
+        case '5':
+          seafoodComboImage.src = 'screens/2/seafood_combo/2.png';
+          break;
+        case '10':
+          vcComboImage.src = 'screens/2/vc_combo/2.png';
+          break;
+      }
+    }
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        selectButton(button.dataset.id);
+      });
+    });
+
+    saveBtn.addEventListener('click', () => {
+      updateMenuImages(selectedId);
+      menu.style.display = 'none';
+    });
+
+    // Подсветить первую кнопку при загрузке страницы
+    selectButton(selectedId);
   </script>
 
   <script src="slider.js"></script>
