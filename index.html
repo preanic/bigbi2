@@ -8,23 +8,42 @@
   <body>
     <div class="main-container">
       <div class="header">
-        <img src="logo.svg" alt="Logo" class="logo">
         <div class="title">
-          ВЫБЕРИТЕ ЭКРАН
+          ОРИЕНТАЦИЯ
         </div>
       </div>
 
-      <div class="screens">
-        <a href="1.html" class="screen_link">
-          1
-        </a>
-        <a href="2.html" class="screen_link">
-          2
-        </a>
-        <a href="3.html" class="screen_link">
-          3
-        </a>
+      <div class="orientation-menu">
+        <label>
+          <input type="radio" name="orientation" value="landscape" checked>
+          АЛЬБОМНАЯ
+        </label>
+
+        <label>
+          <input type="radio" name="orientation" value="portrait">
+          ПОРТРЕТНАЯ
+        </label>
       </div>
+      <button id="saveOrientationBtn">OK</button>
     </div>
+
+    <script>
+      const savedOrientation =
+        localStorage.getItem('menuOrientation') || 'landscape';
+
+      document.querySelector(
+        `input[name="orientation"][value="${savedOrientation}"]`
+      ).checked = true;
+
+      document.getElementById('saveOrientationBtn').addEventListener('click', () => {
+        const selected = document.querySelector(
+            'input[name="orientation"]:checked'
+        );
+
+        localStorage.setItem('menuOrientation', selected.value);
+
+        window.location.href = 'screen.html';
+      });
+    </script>
   </body>
 </html>

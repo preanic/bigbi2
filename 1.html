@@ -8,10 +8,20 @@
 </head>
 <body>
 
-<div class="slider">
-    <img src="screens/1/1.png" class="slide active">
-</div>
+  <div class="slider">
+      <img id="image" class="slide active">
+  </div>
 
-<div class="dots"></div>
+  <script type="text/javascript">
+    function getImagePath(path) {
+      const orientation = localStorage.getItem('menuOrientation') || 'landscape';
+
+      return `screens/${orientation}/${path}`;
+    }
+
+    const image = document.getElementById('image');
+
+    image.src = getImagePath(`1/1.png`);
+  </script>
 </body>
 </html>

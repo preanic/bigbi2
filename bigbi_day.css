@@ -12,8 +12,8 @@
   height: 10rem;
   z-index: 100;
   cursor: pointer;
-  background-color: #3E5536;
-  border: 2px solid #7AB266;
+  background: #101010;
+  border: 0;
   color: #fff;
   font-size: 2rem;
   font-family: 'Martian Grotesk', sans-serif;
@@ -81,13 +81,11 @@ h1 {
 
 .sandwich-btn.active {
   background: rgba(127, 196, 76, 0.7);
-  border: 3px solid #C1FC94;
-  box-shadow: 0 0 10px rgba(127, 196, 76, 0.7);
 }
 
 .save-btn {
   display: block;
-  padding: 15px 70px;
+  padding: 25px 170px;
   margin: 1.5rem auto 0;
   border: 3px solid #FFFEDA;
   border-radius: 100px;
@@ -102,13 +100,11 @@ h1 {
 .save-btn:hover {
   background: rgba(127, 196, 76, 0.3);
   border: 3px solid #C1FC94;
-  box-shadow: 0 0 10px rgba(127, 196, 76, 0.4);
 }
 
 .save-btn:active {
   background: rgba(127, 196, 76, 0.7);
   border: 3px solid #C1FC94;
-  box-shadow: 0 0 10px rgba(127, 196, 76, 0.4);
 }
 
 

@@ -34,16 +34,16 @@
       </div>
     </div>
 
-    <button class="save-btn" id="saveBtn">СОХРАНИТЬ</button>
+    <button class="save-btn" id="saveBtn">OK</button>
   </div>
 
 
   <div class="slider">
-    <img src="screens/2/big_combo/1.png" id="bigComboImage" class="slide active">
-    <img src="screens/2/bigbi_day/1.png" id="sandwichDayImage" class="slide">
-    <img src="screens/2/meat_combo/1.png" id="meatComboImage" class="slide">
-    <img src="screens/2/seafood_combo/1.png" id="seafoodComboImage" class="slide">
-    <img src="screens/2/vc_combo/1.png" id="vcComboImage" class="slide">
+    <img id="bigComboImage" class="slide active">
+    <img id="sandwichDayImage" class="slide">
+    <img id="meatComboImage" class="slide">
+    <img id="seafoodComboImage" class="slide">
+    <img id="vcComboImage" class="slide">
   </div>
 
   <div class="dots"></div>
@@ -58,6 +58,11 @@
     const meatComboImage = document.getElementById('meatComboImage');
     const seafoodComboImage = document.getElementById('seafoodComboImage');
     const vcComboImage = document.getElementById('vcComboImage');
+
+    bigComboImage.src = getImagePath(`2/big_combo/1.png`);
+    meatComboImage.src = getImagePath(`2/meat_combo/1.png`);
+    seafoodComboImage.src = getImagePath(`2/seafood_combo/1.png`);
+    vcComboImage.src = getImagePath(`2/vc_combo/1.png`);
 
     // По умолчанию выбран первый BIGBI
     let selectedId = buttons[0].dataset.id;
@@ -74,29 +79,35 @@
       });
     }
 
+    function getImagePath(path) {
+      const orientation = localStorage.getItem('menuOrientation') || 'landscape';
+
+      return `screens/${orientation}/${path}`;
+    }
+
     function updateMenuImages(id) {
       // BIGBI дня
-      sandwichDayImage.src = `screens/2/bigbi_day/${id}.png`;
+      sandwichDayImage.src = getImagePath(`2/bigbi_day/${id}.png`);
 
       // Возвращаем все комбо к изображениям по умолчанию
-      bigComboImage.src = 'screens/2/big_combo/1.png';
-      meatComboImage.src = 'screens/2/meat_combo/1.png';
-      seafoodComboImage.src = 'screens/2/seafood_combo/1.png';
-      vcComboImage.src = 'screens/2/vc_combo/1.png';
+      bigComboImage.src = getImagePath(`2/big_combo/1.png`);
+      meatComboImage.src = getImagePath(`2/meat_combo/1.png`);
+      seafoodComboImage.src = getImagePath(`2/seafood_combo/1.png`);
+      vcComboImage.src = getImagePath(`2/vc_combo/1.png`);
 
       // Подменяем нужное комбо
       switch (id) {
         case '2':
-          meatComboImage.src = 'screens/2/meat_combo/2.png';
+          meatComboImage.src = getImagePath(`2/meat_combo/2.png`);
           break;
         case '3':
-          bigComboImage.src = 'screens/2/big_combo/2.png';
+          bigComboImage.src = getImagePath(`2/big_combo/2.png`);
           break;
         case '5':
-          seafoodComboImage.src = 'screens/2/seafood_combo/2.png';
+          seafoodComboImage.src = getImagePath(`2/seafood_combo/2.png`);
           break;
         case '10':
-          vcComboImage.src = 'screens/2/vc_combo/2.png';
+          vcComboImage.src = getImagePath(`2/vc_combo/2.png`);
           break;
       }
     }

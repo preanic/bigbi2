@@ -73,6 +73,69 @@ body {
 
 
 
+
+/* Orientation Menu*/
+.orientation-menu {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+#saveOrientationBtn {
+  display: block;
+  padding: 25px 170px;
+  margin: 3rem auto 0;
+  border: 3px solid #FFFEDA;
+  border-radius: 100px;
+  background: #1d1d1d;
+  color: #fff;
+  font-family: 'Martian Grotesk', sans-serif;
+  font-variation-settings: "wght" 500, "wdth" 80;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#saveOrientationBtn:hover {
+  background: rgba(127, 196, 76, 0.3);
+  border: 3px solid #C1FC94;
+}
+
+#saveOrientationBtn:active {
+  background: rgba(127, 196, 76, 0.7);
+  border: 3px solid #C1FC94;
+}
+
+.orientation-menu label {
+    height: 15rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2rem;
+    color: #fff;
+    font-family: 'Martian Grotesk', sans-serif;
+
+    font-size: 3rem;
+    cursor: pointer;
+
+    font-variation-settings: "wght" 1000, "wdth" 100;
+    border: 2px solid #fff;
+    border-radius: 1rem;
+}
+
+/* Скрываем стандартный radio */
+.orientation-menu input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Выбранная кнопка */
+.orientation-menu label:has(input[type="radio"]:checked) {
+  background: rgba(127, 196, 76, 0.7);
+}
+
+
 /* FONTS */
 @font-face{
   font-family: 'Martian Grotesk';

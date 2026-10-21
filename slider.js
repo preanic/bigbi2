@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+  function getImagePath(path) {
+    const orientation = localStorage.getItem('menuOrientation') || 'landscape';
+
+    return `screens/${orientation}/${path}`;
+  }
+
+
+
   const slides = Array.from(document.querySelectorAll('.slide'));
   const dotsContainer = document.querySelector('.dots');
 
@@ -26,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sandwichId = localStorage.getItem('sandwichOfTheDay') || '1';
 
   if (sandwichDayImage) {
-    sandwichDayImage.src = `screens/2/bigbi_day/${sandwichId}.png`;
+    sandwichDayImage.src = getImagePath(`2/bigbi_day/${sandwichId}.png`);
   }
 
   /*
